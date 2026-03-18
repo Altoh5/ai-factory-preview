@@ -271,6 +271,7 @@ const SECTIONS: Section[] = [
     subtitle: "Autonomous agents, agentic AI, and building what comes next",
     color: "from-orange-500 to-amber-500",
     iconBg: "bg-orange-500/20 text-orange-400",
+    infographic: "/infographics/ch14-autonomous-agents.png",
     chapters: [
       {
         number: 14,
@@ -392,7 +393,7 @@ function Hero() {
             <div className="relative rounded-lg overflow-hidden shadow-2xl border border-border/50 max-w-[340px]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/book-cover.svg"
+                src="/AI Factory image_Cover.jpeg"
                 alt="The AI Factory book cover"
                 className="w-full"
                 width={340}
