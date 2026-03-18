@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="500" viewBox="0 0 340 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#0c1222"/>
+    </linearGradient>
+  </defs>
+  <rect width="340" height="500" fill="url(#bg)" rx="8"/>
+  <rect y="0" width="340" height="6" fill="#2563eb"/>
+  <text x="170" y="160" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#94a3b8" letter-spacing="2">THE</text>
+  <text x="170" y="210" text-anchor="middle" font-family="Arial,sans-serif" font-size="56" font-weight="bold" fill="white">AI</text>
+  <text x="170" y="260" text-anchor="middle" font-family="Arial,sans-serif" font-size="36" font-weight="bold" fill="#60a5fa">FACTORY</text>
+  <text x="170" y="300" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">AI Capability Guide for SMEs</text>
+  <line x1="100" y1="320" x2="240" y2="320" stroke="#2563eb" stroke-width="1"/>
+  <text x="170" y="380" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="bold" fill="white">Kevin Shepherdson</text>
+  <text x="170" y="405" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" fill="#f97316">Celine Chew &amp; Joaquin Jay Gonzalez III</text>
+  <!-- Gear icon -->
+  <text x="170" y="120" text-anchor="middle" font-size="40" fill="#2563eb" opacity="0.3">⚙</text>
+</svg>
