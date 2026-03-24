@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The AI Factory — Book Preview Site
 
-## Getting Started
+Interactive preview site for **The AI Factory: AI Capability Guide for SMEs** by Kevin Shepherdson, Celine Chew & Joaquin Jay Gonzalez III.
 
-First, run the development server:
+🌐 **Live site:** https://altoh5.github.io/ai-factory-preview/
+
+---
+
+## About the Book
+
+Every company is now an intelligence manufacturer. This book gives SME leaders a practical framework to build, customize, and deploy their own AI Factory — no coding required.
+
+- **15 chapters** across Foundation, Floor 1 (Production), Floor 2 (Operations), and Part 3 (The Future)
+- **Free chapter preview** per section, soft-gated thereafter
+- **Sketchnote infographics** for each section (generated with NotebookLM)
+- **AI Factory Formula:** Data + Compute + Models = Intelligence
+
+Endorsed by leaders from NVIDIA, Google DeepMind, Singapore Parliament & more.
+
+📖 **Get the book:** [info@straitsinteractive.com](mailto:info@straitsinteractive.com?subject=AI%20Factory%20Book%20Inquiry)
+
+---
+
+## Tech Stack
+
+- [Next.js 16](https://nextjs.org/) — static export
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- [NotebookLM](https://notebooklm.google.com/) — sketchnote infographic generation
+- Deployed via GitHub Actions → GitHub Pages
+
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploy to GitHub Pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Pushes to `main` automatically build and deploy via the included Actions workflow (`.github/workflows/deploy.yml`).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To enable for the first time:
+1. Go to **Settings → Pages** in this repo
+2. Set Source to **GitHub Actions**
+3. Push to `main` — the workflow will build and deploy automatically
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Published by [Straits Interactive](https://straitsinteractive.com) · Available across ASEAN

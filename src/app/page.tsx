@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useRef } from "react";
-import Image from "next/image";
+
+// basePath prefix for static export (GitHub Pages)
+const B = process.env.NODE_ENV === "production" ? "/ai-factory-preview" : "";
 
 /* ------------------------------------------------------------------ */
 /*  DATA                                                               */
@@ -512,13 +514,11 @@ function HeroSection({ onNav }: { onNav: (id: string) => void }) {
             <div className="relative">
               <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-blue-600/20 to-cyan-600/10 blur-2xl" />
               <div className="relative rounded-lg overflow-hidden shadow-2xl border border-border/50 w-[220px]">
-                <Image
-                  src="/AI Factory image_Cover.jpeg"
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${B}/AI Factory image_Cover.jpeg`}
                   alt="The AI Factory book cover"
-                  width={220}
-                  height={330}
                   className="w-full"
-                  priority
                 />
               </div>
               <div className="absolute -bottom-2 -right-2 bg-accent-orange text-white rounded-full w-14 h-14 flex flex-col items-center justify-center text-center shadow-lg glow-orange">
@@ -574,11 +574,10 @@ function HeroSection({ onNav }: { onNav: (id: string) => void }) {
               >
                 {s.infographic && (
                   <div className="aspect-[4/3] overflow-hidden bg-surface">
-                    <Image
-                      src={s.infographic}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`${B}${s.infographic}`}
                       alt={s.title}
-                      width={320}
-                      height={240}
                       className="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
                     />
                   </div>
@@ -835,11 +834,10 @@ function SectionContent({ section }: { section: Section }) {
       {/* Infographic */}
       {section.infographic && (
         <div className="mb-5 rounded-xl border border-border overflow-hidden bg-surface/30">
-          <Image
-            src={section.infographic}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${B}${section.infographic}`}
             alt={`${section.title} infographic`}
-            width={800}
-            height={600}
             className="w-full"
           />
         </div>
@@ -1031,7 +1029,8 @@ export default function Home() {
                       {/* Mini infographic */}
                       {isActive && s.infographic && (
                         <div className="mt-2 rounded-lg overflow-hidden border border-border/50 aspect-[16/9]">
-                          <Image src={s.infographic} alt="" width={224} height={126} className="w-full h-full object-cover object-top" />
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={`${B}${s.infographic}`} alt="" className="w-full h-full object-cover object-top" />
                         </div>
                       )}
                     </button>
