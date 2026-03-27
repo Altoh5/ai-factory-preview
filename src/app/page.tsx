@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 
 // basePath prefix for static export (GitHub Pages)
 const B = "/ai-factory-preview";
@@ -638,6 +638,116 @@ const SECTIONS: Section[] = [
 /*  COMPONENTS                                                         */
 /* ------------------------------------------------------------------ */
 
+/* ------------------------------------------------------------------ */
+/*  GOOGLE SHEETS DYNAMIC RESOURCES                                    */
+/* ------------------------------------------------------------------ */
+
+const SHEET_ID = "1fyKvkaURZYrAdCEQCtc_ILbyGyS7seKeEr5bpc7Fewg";
+const SHEET_NAME = "ai_factory_assets_filtered";
+const SHEET_CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(SHEET_NAME)}`;
+
+function parseCSVRow(row: string): string[] {
+  const result: string[] = [];
+  let current = "";
+  let inQuotes = false;
+  for (let i = 0; i < row.length; i++) {
+    const c = row[i];
+    if (inQuotes) {
+      if (c === '"' && row[i + 1] === '"') { current += '"'; i++; }
+      else if (c === '"') { inQuotes = false; }
+      else { current += c; }
+    } else {
+      if (c === '"') { inQuotes = true; }
+      else if (c === ',') { result.push(current.trim()); current = ""; }
+      else { current += c; }
+    }
+  }
+  result.push(current.trim());
+  return result;
+}
+
+function chapterNumFromStr(ch: string): number {
+  const m = ch.match(/\d+/);
+  return m ? parseInt(m[0], 10) : 0;
+}
+
+type SheetResource = {
+  chapter: number;
+  chapterTitle: string;
+  contentTitle: string;
+  type: string;
+  source: string;
+  url: string;
+  keyConnection: string;
+  date: string;
+};
+
+function useSheetResources(): Map<number, LinkedInPost[]> {
+  const [resourceMap, setResourceMap] = useState<Map<number, LinkedInPost[]>>(new Map());
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(SHEET_CSV_URL)
+      .then((r) => r.text())
+      .then((csv) => {
+        if (cancelled) return;
+        const lines = csv.split("\n").filter((l) => l.trim());
+        if (lines.length < 2) return;
+        // Skip header row
+        const rows: SheetResource[] = [];
+        for (let i = 1; i < lines.length; i++) {
+          const cols = parseCSVRow(lines[i]);
+          if (cols.length < 7) continue;
+          rows.push({
+            chapter: chapterNumFromStr(cols[0]),
+            chapterTitle: cols[1],
+            contentTitle: cols[2],
+            type: cols[3],
+            source: cols[4],
+            url: cols[5],
+            keyConnection: cols[6],
+            date: cols[7] || "",
+          });
+        }
+        // Group by chapter
+        const map = new Map<number, LinkedInPost[]>();
+        for (const r of rows) {
+          if (!r.chapter || !r.url) continue;
+          const post: LinkedInPost = {
+            title: r.contentTitle,
+            snippet: r.keyConnection,
+            url: r.url,
+            author: r.source,
+            type: r.type,
+            date: r.date,
+          };
+          const list = map.get(r.chapter) || [];
+          list.push(post);
+          map.set(r.chapter, list);
+        }
+        setResourceMap(map);
+      })
+      .catch(() => {
+        // Silently fall back to hardcoded data
+      });
+    return () => { cancelled = true; };
+  }, []);
+
+  return resourceMap;
+}
+
+/** Merge sheet resources into sections — sheet data wins if available */
+function mergeSections(sections: Section[], sheetMap: Map<number, LinkedInPost[]>): Section[] {
+  if (sheetMap.size === 0) return sections; // fallback to hardcoded
+  return sections.map((s) => ({
+    ...s,
+    chapters: s.chapters.map((ch) => {
+      const sheetPosts = sheetMap.get(ch.number);
+      return sheetPosts ? { ...ch, linkedInPosts: sheetPosts } : ch;
+    }),
+  }));
+}
+
 function LinkedInIcon({ size = 12 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -1228,6 +1338,8 @@ function CTASection() {
 export default function Home() {
   const [activeSection, setActiveSection] = useState("foundation");
   const explorerRef = useRef<HTMLDivElement>(null);
+  const sheetResources = useSheetResources();
+  const sections = mergeSections(SECTIONS, sheetResources);
 
   const handleNav = (id: string) => {
     if (id === "hero") {
@@ -1264,7 +1376,7 @@ export default function Home() {
             {/* ---- Sidebar ---- */}
             <div className="hidden md:block w-56 flex-shrink-0">
               <div className="sticky top-20 space-y-1">
-                {SECTIONS.map((s) => {
+                {sections.map((s) => {
                   const isActive = activeSection === s.id;
                   return (
                     <button
@@ -1311,7 +1423,7 @@ export default function Home() {
             <div className="flex-1 min-w-0">
               {/* Mobile tabs */}
               <div className="md:hidden flex gap-1 mb-6 overflow-x-auto pb-2">
-                {SECTIONS.map((s) => (
+                {sections.map((s) => (
                   <button
                     key={s.id}
                     onClick={() => setActiveSection(s.id)}
@@ -1326,7 +1438,7 @@ export default function Home() {
                 ))}
               </div>
 
-              {SECTIONS.map((s) =>
+              {sections.map((s) =>
                 activeSection === s.id ? <SectionContent key={s.id} section={s} /> : null
               )}
             </div>
