@@ -849,8 +849,6 @@ function LinkedInPostCard({ post }: { post: LinkedInPost }) {
 
 /* ---- Chapter card ---- */
 function ChapterCard({ chapter, section }: { chapter: Chapter; section: Section }) {
-  const [expanded, setExpanded] = useState(false);
-
   if (!chapter.isFree) {
     return (
       <div className="relative rounded-xl border border-border bg-surface/30 p-4 overflow-hidden">
@@ -860,12 +858,22 @@ function ChapterCard({ chapter, section }: { chapter: Chapter; section: Section 
             <div>
               <span className="text-xs text-muted">Chapter {chapter.number}</span>
               <h4 className="font-semibold mt-0.5 text-sm">{chapter.title}</h4>
-              <p className="text-xs text-muted mt-1.5 line-clamp-2">{chapter.summary}</p>
+              <p className="text-xs text-muted mt-1.5">{chapter.summary}</p>
             </div>
             <div className="ml-3 flex-shrink-0 rounded-full bg-border/50 p-1.5">
               <LockIcon />
             </div>
           </div>
+          {/* Key ideas teaser */}
+          {chapter.keyIdeas.length > 0 && (
+            <div className="mt-2.5 flex flex-wrap gap-1.5">
+              {chapter.keyIdeas.slice(0, 3).map((idea) => (
+                <span key={idea} className="inline-block text-[10px] text-muted/80 bg-surface/60 border border-border/40 rounded-full px-2 py-0.5 line-clamp-1">
+                  {idea.split("—")[0].trim()}
+                </span>
+              ))}
+            </div>
+          )}
           {chapter.linkedInPosts && chapter.linkedInPosts.length > 0 && (
             <div className="mt-3 space-y-2">
               {chapter.linkedInPosts.map((post) => (
@@ -896,120 +904,156 @@ function ChapterCard({ chapter, section }: { chapter: Chapter; section: Section 
           <h4 className="font-semibold mt-0.5 text-sm">{chapter.title}</h4>
         </div>
       </div>
-      <p className="text-xs text-muted mt-1.5">{chapter.summary}</p>
-      {expanded && (
-        <div className="mt-3">
-          <h5 className="text-[10px] font-semibold text-muted uppercase tracking-wide mb-2">Key Ideas</h5>
-          <ul className="space-y-1">
-            {chapter.keyIdeas.map((idea) => (
-              <li key={idea} className="flex items-start gap-2 text-xs text-muted">
-                <span className="text-accent-blue mt-0.5">&bull;</span>
-                {idea}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <p className="text-xs text-muted mt-2 leading-relaxed">{chapter.summary}</p>
+
+      {/* Key ideas - always visible for free chapters */}
+      <div className="mt-3">
+        <h5 className="text-[10px] font-semibold text-muted uppercase tracking-wide mb-2">Key Ideas from the Book</h5>
+        <ul className="space-y-1.5">
+          {chapter.keyIdeas.map((idea) => (
+            <li key={idea} className="flex items-start gap-2 text-xs text-muted leading-relaxed">
+              <span className={`${section.accent} mt-0.5 flex-shrink-0`}>&bull;</span>
+              {idea}
+            </li>
+          ))}
+        </ul>
+      </div>
+
       {chapter.linkedInPosts && chapter.linkedInPosts.length > 0 && (
         <div className="mt-3 space-y-2">
+          <h5 className="text-[10px] font-semibold text-muted uppercase tracking-wide mb-1">Related Content</h5>
           {chapter.linkedInPosts.map((post) => (
             <LinkedInPostCard key={post.url} post={post} />
           ))}
         </div>
       )}
-      <button onClick={() => setExpanded(!expanded)} className="mt-2 text-xs text-accent-blue hover:underline">
-        {expanded ? "Show less" : "Key ideas ↓"}
-      </button>
     </div>
   );
 }
 
-/* ---- Chapter 1 deep dive ---- */
-function Chapter1DeepDive() {
-  const [showMore, setShowMore] = useState(false);
+/* ---- Chapter 1 Flipbook deep dive ---- */
+const CH1_PAGES = [
+  {
+    title: "The Fourth Industrial Revolution",
+    content: `We are living through a fourth industrial revolution. The first had steam and cotton mills. The second had electricity and assembly lines. The third gave us microchips and the internet. This fourth revolution is powered by data, algorithms, and computing infrastructure — and its product is not physical goods, but intelligence itself.`,
+    highlight: `"Every company is now fundamentally an intelligence manufacturer." — Jensen Huang, NVIDIA`,
+    visual: "revolution",
+  },
+  {
+    title: "The AI Factory Metaphor",
+    content: `Think of your business as a factory. But instead of manufacturing widgets, you're manufacturing digital intelligence — insights, predictions, content, decisions. The raw materials are your data. The machines are AI models. The workers are LLMs like GPT and Claude. And the finished goods are tokens: the units of AI output that power everything from automated emails to strategic forecasts.`,
+    highlight: "Data + Compute + Models = Tokens — this is the AI Factory Formula",
+    visual: "factory",
+  },
+  {
+    title: "Three Layers of the AI Factory",
+    content: `Every AI Factory has three layers. The Infrastructure layer is the foundation — data centres, cloud platforms, and GPUs that provide the raw computing power. The Production layer is the assembly line — where AI models are trained and inputs are transformed into intelligence. The Application layer is the shopfront — where AI outputs reach customers and create business value. Most SMEs operate mainly at the Application layer, but understanding all three is essential to making smart AI investments.`,
+    highlight: "Infrastructure → Production → Application",
+    visual: "layers",
+  },
+  {
+    title: "The 80:20 Capability Gap",
+    content: `Here's the uncomfortable truth: 80% of professionals today are passive AI consumers. They use ChatGPT to draft an email or summarise a document, but they haven't built real capability. The remaining 20% are AI builders — they create custom workflows, integrate AI into business processes, and manufacture intelligence at scale. This book is written for the 80% who want to join the 20%.`,
+    highlight: "80% consume AI. 20% build with it. This book bridges that gap.",
+    visual: "gap",
+  },
+  {
+    title: "Five Elements of GenAI Capability",
+    content: `The book introduces five elements that separate AI-ready teams from passive users. Knowledge — your domain expertise becomes the raw material AI works with. Skills — the ability to prompt, supervise, validate, and apply AI outputs. Tools — the models, APIs, and platforms you choose. Processes — the workflows where AI is embedded into daily operations. Mindset — the willingness to experiment, fail, iterate, and build. Without all five, you're just playing with a chatbot.`,
+    highlight: "Knowledge + Skills + Tools + Processes + Mindset = AI Capability",
+    visual: "elements",
+  },
+  {
+    title: "Case Study: L'Oréal's AI Factory",
+    content: `The chapter brings the metaphor to life with L'Oréal's AI-powered beauty diagnostics. The cosmetics giant built its own AI Factory: customer skin data (raw material) feeds into computer vision models (the machines), which produce personalised product recommendations (finished goods). The result? A scalable intelligence production line that serves millions of customers with advice that used to require a human beauty consultant. If L'Oréal can do it, the authors argue, so can your 50-person SME — at a different scale, with the same principles.`,
+    highlight: "If L'Oréal can build an AI Factory, so can your SME — same principles, different scale.",
+    visual: "case",
+  },
+  {
+    title: "Self-Check: Are You Ready?",
+    content: `The chapter closes with a self-assessment. Can you explain the AI Factory metaphor to your board? Can you identify three business processes where digital intelligence would add value? Do you understand the difference between using AI tools and building AI capability? If you answered no to any of these, this book is your starting point.`,
+    highlight: "The AI Factory journey begins with knowing where you stand.",
+    visual: "check",
+  },
+];
+
+function Chapter1Flipbook() {
+  const [page, setPage] = useState(0);
+  const [flipping, setFlipping] = useState(false);
+
+  const goTo = (p: number) => {
+    if (p === page || flipping) return;
+    setFlipping(true);
+    setTimeout(() => {
+      setPage(p);
+      setFlipping(false);
+    }, 250);
+  };
+
+  const pg = CH1_PAGES[page];
 
   return (
     <div className="mt-6 rounded-xl border border-blue-500/20 bg-blue-500/5 p-5">
-      <div className="flex items-center gap-2 mb-3">
-        <span className="text-xs font-semibold rounded-full px-3 py-1 bg-blue-600/20 text-blue-400">
-          FULL CHAPTER PREVIEW
-        </span>
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-semibold rounded-full px-3 py-1 bg-blue-600/20 text-blue-400">
+            FULL CHAPTER PREVIEW
+          </span>
+          <span className="text-[10px] text-muted">Chapter 1 &middot; Flipbook</span>
+        </div>
+        <div className="text-[10px] text-muted">
+          {page + 1} / {CH1_PAGES.length}
+        </div>
       </div>
-      <h3 className="text-lg font-bold mb-1">Chapter 1: Welcome to the AI Factory</h3>
-      <p className="text-muted text-xs mb-4 italic">
-        &ldquo;Every company is now fundamentally an intelligence manufacturer.&rdquo; &mdash; Jensen Huang, NVIDIA
-      </p>
 
-      <div className="space-y-4 text-sm leading-relaxed text-muted">
-        <p>
-          We are living through a fourth industrial revolution. While steam, electricity, and microchips powered the first three, this new era is fueled by{" "}
-          <strong className="text-foreground">data, algorithms, and computing infrastructure</strong>.
-        </p>
+      {/* Page content */}
+      <div className={`min-h-[320px] transition-all duration-250 ${flipping ? "opacity-0 translate-x-4" : "opacity-100 translate-x-0"}`}>
+        <h3 className="text-lg font-bold mb-3 text-foreground">{pg.title}</h3>
 
-        <div className="rounded-lg border border-border bg-background/50 p-4">
-          <h4 className="text-foreground font-semibold text-sm mb-2">Three Layers of the AI Factory</h4>
-          <div className="space-y-2">
-            {[
-              { layer: "Infrastructure", desc: "Data centres, cloud platforms, GPUs" },
-              { layer: "Production", desc: "Training AI models, transforming inputs to intelligence" },
-              { layer: "Application", desc: "Where AI outputs reach the real world" },
-            ].map((l) => (
-              <div key={l.layer} className="flex items-start gap-2 rounded bg-surface/50 p-2 text-xs">
-                <div className="w-6 h-6 rounded bg-accent-blue/15 flex items-center justify-center text-accent-blue text-[10px] font-bold flex-shrink-0">
-                  {l.layer[0]}
-                </div>
-                <div>
-                  <span className="font-semibold text-foreground">{l.layer}</span>
-                  <span className="text-muted"> &mdash; {l.desc}</span>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="text-sm leading-relaxed text-muted mb-4">
+          <p>{pg.content}</p>
         </div>
 
-        {showMore && (
-          <>
-            <div className="rounded-lg border border-border bg-background/50 p-4">
-              <h4 className="text-foreground font-semibold text-sm mb-2">Five Elements of GenAI Capability</h4>
-              <div className="grid gap-1.5">
-                {[
-                  { el: "Knowledge", desc: "Your raw material for AI" },
-                  { el: "Skills", desc: "Prompt, supervise, validate, apply" },
-                  { el: "Tools", desc: "AI models, APIs, platforms" },
-                  { el: "Processes", desc: "Workflows where AI is embedded" },
-                  { el: "Mindset", desc: "Willingness to experiment" },
-                ].map((e) => (
-                  <div key={e.el} className="flex items-center gap-2 rounded bg-surface/50 p-2 text-xs">
-                    <span className="font-semibold text-foreground w-20 flex-shrink-0">{e.el}</span>
-                    <span className="text-muted">{e.desc}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-lg border border-accent-orange/30 bg-accent-orange/5 p-4">
-              <h4 className="text-accent-orange font-semibold text-xs mb-2">Self-Check: Are You Ready?</h4>
-              <ul className="text-[11px] text-muted space-y-1">
-                {[
-                  "I understand the AI Factory metaphor and how it applies to business",
-                  "I can explain the three layers",
-                  "I can identify business processes where digital intelligence adds value",
-                  "I recognize the importance of capability — not just tools",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-1.5">
-                    <span className="text-accent-orange">{"□"}</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </>
-        )}
+        {/* Highlight callout */}
+        <div className="rounded-lg border border-blue-500/30 bg-blue-500/10 p-3 mb-4">
+          <div className="text-[10px] font-bold text-blue-400 uppercase tracking-wider mb-1">Key Takeaway</div>
+          <p className="text-sm text-blue-200 font-medium italic" style={{ fontFamily: "var(--font-display)" }}>
+            {pg.highlight}
+          </p>
+        </div>
       </div>
 
-      <button onClick={() => setShowMore(!showMore)} className="mt-4 text-xs text-accent-blue hover:underline">
-        {showMore ? "Show less" : "Read full chapter highlights ↓"}
-      </button>
+      {/* Navigation */}
+      <div className="flex items-center justify-between mt-4 pt-3 border-t border-border/30">
+        <button
+          onClick={() => goTo(Math.max(0, page - 1))}
+          disabled={page === 0}
+          className="flex items-center gap-1 text-xs text-muted hover:text-foreground disabled:opacity-30 disabled:hover:text-muted transition"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
+          Previous
+        </button>
+
+        {/* Page dots */}
+        <div className="flex gap-1.5">
+          {CH1_PAGES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              className={`w-2 h-2 rounded-full transition ${i === page ? "bg-blue-400 scale-125" : "bg-border hover:bg-muted"}`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={() => goTo(Math.min(CH1_PAGES.length - 1, page + 1))}
+          disabled={page === CH1_PAGES.length - 1}
+          className="flex items-center gap-1 text-xs text-muted hover:text-foreground disabled:opacity-30 disabled:hover:text-muted transition"
+        >
+          Next
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
     </div>
   );
 }
@@ -1065,7 +1109,7 @@ function SectionContent({ section }: { section: Section }) {
       </div>
 
       {/* Chapter 1 deep dive for Foundation */}
-      {section.id === "foundation" && <Chapter1DeepDive />}
+      {section.id === "foundation" && <Chapter1Flipbook />}
     </div>
   );
 }
