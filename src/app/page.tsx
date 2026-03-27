@@ -47,6 +47,8 @@ type LinkedInPost = {
   snippet: string;
   url: string;
   author: string;
+  type?: string;
+  date?: string;
 };
 
 type Chapter = {
@@ -103,18 +105,44 @@ const SECTIONS: Section[] = [
         ],
         linkedInPosts: [
           {
-            title: "AI Factory Book Launch Reflections",
-            snippet:
-              "What I witnessed at the AI Factory book launch — a powerful moment for SMEs embracing AI capability.",
-            url: "https://www.linkedin.com/posts/straits-interactive_what-i-witnessed-at-the-ai-factory-book-launch-activity-7399350916421885952-o9M9",
-            author: "Kevin Shepherdson",
+            title: "Kevin Shepherdson: Capability-as-a-Service",
+            snippet: "Introduces the AI Factory model and the shift from AI literacy to AI capability — from the NewInAsia channel.",
+            url: "https://www.youtube.com/watch?v=cW3cyJv4Ol8",
+            author: "NewInAsia",
+            type: "Video",
+            date: "Oct 2025",
           },
           {
-            title: "First AI-Blended Publication",
-            snippet:
-              "It's the first AI-Blended Publication — a practical guide paired with a hands-on toolkit to help you build your own AI solutions.",
-            url: "https://www.linkedin.com/posts/straits-interactive_the-ai-factory-ai-capability-guide-for-activity-7421763973257052160-2XVH",
-            author: "Straits Interactive",
+            title: "The AI Factory: Turning AI Fluency into Capability",
+            snippet: "Explains the 20% of professionals building vs 80% consuming — the core Factory metaphor.",
+            url: "https://www.dpexnetwork.org/articles/the-ai-factory-turning-ai-fluency-into-capability",
+            author: "DPEX Network",
+            type: "Article",
+            date: "Nov 2025",
+          },
+          {
+            title: "What I Witnessed at the AI Factory Book Launch",
+            snippet: "Kevin's account of the book's significance for SMEs and non-tech professionals.",
+            url: "https://www.dpexnetwork.org/articles/what-i-witnessed-at-the-ai-factory-book-launch-a-turning-point-for-singapores-smes--non-tech-professionals",
+            author: "DPEX Network",
+            type: "Article",
+            date: "Nov 2025",
+          },
+          {
+            title: "From AI Literacy to AI Capability Building",
+            snippet: "Connects the AI literacy → AI capability journey directly to the Book.",
+            url: "https://www.linkedin.com/posts/kevinshepherdson_from-ai-literacy-to-ai-capability-building-activity-7394144811760537600-hcQP",
+            author: "Kevin Shepherdson",
+            type: "LinkedIn",
+            date: "Nov 2025",
+          },
+          {
+            title: "AI Factory Launch Powers SME Generative AI Transformation",
+            snippet: "Media coverage of the AI Factory's relevance to Singapore SMEs.",
+            url: "https://newinasia.com/2025/11/17/singapore-smes-generative-ai-guidebook/",
+            author: "New in Asia",
+            type: "Press",
+            date: "Nov 2025",
           },
         ],
       },
@@ -148,11 +176,20 @@ const SECTIONS: Section[] = [
         ],
         linkedInPosts: [
           {
-            title: "Turning AI Skills into Business Impact",
-            snippet:
-              "What does it take to turn AI skills into real business impact? See how The AI Factory helps move from AI awareness to capability.",
-            url: "https://www.linkedin.com/posts/straits-interactive_what-does-it-take-to-turn-ai-skills-into-activity-7401470250334273537-xtQ_",
+            title: "The AI Factory — AI Capability Guide for SMEs",
+            snippet: "Highlights the digital intelligence output concept from the book launch.",
+            url: "https://www.linkedin.com/posts/straits-interactive_the-ai-factory-ai-capability-guide-for-activity-7421763973257052160-2XVH",
             author: "Straits Interactive",
+            type: "LinkedIn",
+            date: "Mar 2026",
+          },
+          {
+            title: "Generative AI in 2025: The 6Cs Scorecard",
+            snippet: "Reviews types of GenAI outputs produced across industries in 2025.",
+            url: "https://www.linkedin.com/pulse/2025-ai-scorecard-look-back-generative-trends-we-predicted-pomac",
+            author: "Straits Interactive",
+            type: "Article",
+            date: "Dec 2025",
           },
         ],
       },
@@ -168,6 +205,16 @@ const SECTIONS: Section[] = [
           "The Transformer architecture explained",
           "Putting your AI workforce to work",
         ],
+        linkedInPosts: [
+          {
+            title: "The Rundown: State of AI with Andeed Ma",
+            snippet: "Discussion on the current state of GenAI models and what it means for businesses deploying AI workers.",
+            url: "https://www.youtube.com/watch?v=bK_g2zxVvD4",
+            author: "DPEX Network",
+            type: "Video",
+            date: "Mar 2025",
+          },
+        ],
       },
       {
         number: 4,
@@ -181,6 +228,32 @@ const SECTIONS: Section[] = [
           "Capability Clusters",
           "Your AI Factory Blueprint in action",
         ],
+        linkedInPosts: [
+          {
+            title: "2025: A Year of Building AI Capability",
+            snippet: "Reviews the GenAI Maturity Blueprint in practice across organisations in Singapore and the region.",
+            url: "https://www.dpexnetwork.org/articles/2025-a-year-of-building-ai-capability",
+            author: "DPEX Network",
+            type: "Article",
+            date: "Dec 2025",
+          },
+          {
+            title: "SMU Academy Launches AI Roadmap for Singapore SMEs",
+            snippet: "SME AI Blueprint in action through the SMU–Straits Interactive partnership.",
+            url: "https://www.linkedin.com/posts/singapore-management-university_asme-smu-academy-and-straits-interactive-activity-7394947241041403906-CdAu",
+            author: "Singapore Management University",
+            type: "LinkedIn",
+            date: "Nov 2025",
+          },
+          {
+            title: "Building AI Literacy with Adamson Center",
+            snippet: "Capability framework blueprint applied across Philippines via Adamson University partnership.",
+            url: "https://www.linkedin.com/posts/straits-interactive_building-ai-literacywith-adamson-center-activity-7386687987780284416-H7if",
+            author: "Straits Interactive",
+            type: "LinkedIn",
+            date: "Oct 2025",
+          },
+        ],
       },
       {
         number: 5,
@@ -192,6 +265,16 @@ const SECTIONS: Section[] = [
           "The five stages of AI production",
           "Building a data science department without coding",
           "Mid-sized business implementation example",
+        ],
+        linkedInPosts: [
+          {
+            title: "How Capability-as-a-Service Supports Professional Upskilling",
+            snippet: "Describes the AI production pipeline for L&D — how professionals move from literacy to deployed capability.",
+            url: "https://www.dpexnetwork.org/articles/how-capability-as-a-service-supports-professional-upskilling-for-an-ai-driven-future",
+            author: "DPEX Network",
+            type: "Article",
+            date: "Dec 2025",
+          },
         ],
       },
       {
@@ -209,10 +292,11 @@ const SECTIONS: Section[] = [
         linkedInPosts: [
           {
             title: "More Than Just Prompt Engineering",
-            snippet:
-              "In last week's cohort we did more than just learn prompt engineering — we built real AI capability.",
+            snippet: "In last week's cohort we did more than just learn prompt engineering — we built real AI capability.",
             url: "https://www.linkedin.com/posts/kevinshepherdson_in-last-weeks-cohort-we-did-more-than-just-activity-7418785217827454976-Fm6Q",
             author: "Kevin Shepherdson",
+            type: "LinkedIn",
+            date: "Feb 2026",
           },
         ],
       },
@@ -227,6 +311,16 @@ const SECTIONS: Section[] = [
           "Open source vs. proprietary",
           "Core, Clone, and Combination apps",
           "Responsibility in the open era",
+        ],
+        linkedInPosts: [
+          {
+            title: "New Industry Graduate Diploma in Generative AI",
+            snippet: "SMU partnership for GenAI ownership and deployment — a new pathway for working professionals.",
+            url: "https://www.linkedin.com/posts/straits-interactive_launch-of-industry-graduate-diploma-in-generative-activity-7424334805410082816-2uKn",
+            author: "Straits Interactive",
+            type: "LinkedIn",
+            date: "Mar 2026",
+          },
         ],
       },
     ],
@@ -260,10 +354,11 @@ const SECTIONS: Section[] = [
         linkedInPosts: [
           {
             title: "Doubling Down on AI Capability Building",
-            snippet:
-              "We underscored this with our AI Factory book launch and are now rolling out AI Factory playbooks and pilots with grants.",
+            snippet: "Rolling out AI Factory playbooks and pilots with grants — custom intelligence in action.",
             url: "https://www.linkedin.com/posts/alvintoh_were-doubling-down-on-ai-capability-building-activity-7427883425014992897-F21F",
             author: "Alvin Toh",
+            type: "LinkedIn",
+            date: "Mar 2026",
           },
         ],
       },
@@ -281,11 +376,20 @@ const SECTIONS: Section[] = [
         ],
         linkedInPosts: [
           {
-            title: "AI-Driven Marketing MasterClass at SMEICC",
-            snippet:
-              "Alvin Toh led a MasterClass on AI-Driven Marketing, sharing how SMEs can unlock new capabilities.",
-            url: "https://www.linkedin.com/posts/straits-interactive_at-smeicc-2025-our-co-founder-cmo-alvin-activity-7373566388495446016-1dtd",
+            title: "Strengthen Your Business with AI: Key Takeaways from DPEX AI Workshop",
+            snippet: "Direct case study of the AI Workshop lifecycle — how businesses moved from learning to deployment.",
+            url: "https://www.instagram.com/p/DRjIzhbkmtW/",
             author: "Straits Interactive",
+            type: "Social",
+            date: "2025",
+          },
+          {
+            title: "On Stage: Straits Interactive at ASME AI Festival Asia 2025",
+            snippet: "Live AI workshop delivery and methodology showcase at ASME AI Festival Asia.",
+            url: "https://www.youtube.com/watch?v=3MbR5X2lUik",
+            author: "DPEX Network",
+            type: "Video",
+            date: "Feb 2025",
           },
         ],
       },
@@ -302,11 +406,28 @@ const SECTIONS: Section[] = [
         ],
         linkedInPosts: [
           {
-            title: "Personal Intelligence Agents and Extended Reality",
-            snippet:
-              "On a panel discussing AI's future — specifically Personal Intelligence Agents and Extended Reality.",
-            url: "https://www.linkedin.com/posts/alvintoh_it-was-interesting-to-be-on-a-panel-with-activity-7421209992902496256-IMmT",
+            title: "The Human Capabilities That Count: Rethinking Careers in Data",
+            snippet: "Human skills AI cannot replace — the collaboration imperative for the intelligence economy.",
+            url: "https://www.dpexnetwork.org/articles/future-proofing-jobs-the-human-capabilities-ai-cant-replicate",
+            author: "DPEX Network",
+            type: "Article",
+            date: "Dec 2025",
+          },
+          {
+            title: "How AI is Transforming Work in Southeast Asia",
+            snippet: "Is AI after my tasks or my job? Human-AI division of labour in ASEAN — Alvin Toh's take.",
+            url: "https://www.linkedin.com/posts/alvintoh_asiapulse-is-ai-after-my-tasks-or-my-job-activity-7381325693449592833-n0ad",
             author: "Alvin Toh",
+            type: "LinkedIn",
+            date: "Oct 2025",
+          },
+          {
+            title: "AI Delay Puts SMEs at Risk of Cyber Compliance Gaps",
+            snippet: "Human oversight becomes critical when SMEs delay AI adoption — the compliance cost of waiting.",
+            url: "https://www.dpexnetwork.org/articles/ai-delay-puts-smes-at-risk-of-cyber-compliance-gaps",
+            author: "DPEX Network",
+            type: "Article",
+            date: "Sep 2025",
           },
         ],
       },
@@ -324,11 +445,28 @@ const SECTIONS: Section[] = [
         ],
         linkedInPosts: [
           {
-            title: "Training Through the VRC Lens",
-            snippet:
-              "Our differentiated approach: training professionals and AI consulting through the lens of VRC — Value, Risks, and Controls.",
-            url: "https://www.linkedin.com/posts/alvintoh_our-differentiated-approach-in-training-pprofessionals-activity-7400856787765227520-SNZ7",
-            author: "Alvin Toh",
+            title: "The Complex World of Generative AI Governance",
+            snippet: "Explores the ethical and regulatory landscape of GenAI — frameworks, risks, and responsible deployment.",
+            url: "https://www.youtube.com/watch?v=9GUls-cE_3o",
+            author: "YouTube",
+            type: "Video",
+            date: "Dec 2024",
+          },
+          {
+            title: "Governing the Shift from Tools to Digital Teammates",
+            snippet: "Alvin Toh on AI governance for the agentic era — when AI stops being a tool and becomes a teammate.",
+            url: "https://www.dpexnetwork.org/articles/governing-the-shift-from-tools-to-digital-teammates-with-the-ai-factory",
+            author: "DPEX Network",
+            type: "Article",
+            date: "Feb 2026",
+          },
+          {
+            title: "AI Rules Are Changing: Key Regulatory Updates for 2025 & 2026",
+            snippet: "Regulatory updates aligning with the 3As & 3Is governance frameworks discussed in Ch 11.",
+            url: "https://www.youtube.com/watch?v=hvlTWt30CEw",
+            author: "YouTube",
+            type: "Video",
+            date: "Jan 2026",
           },
         ],
       },
@@ -344,6 +482,16 @@ const SECTIONS: Section[] = [
           "Copyright and counterfeit intelligence",
           "Leadership accountability: you own what you ship",
         ],
+        linkedInPosts: [
+          {
+            title: "ASEAN's New AI and Data Frameworks Push Connectivity to Intelligence",
+            snippet: "Regulatory accountability across ASEAN — how new frameworks are reshaping AI product liability.",
+            url: "https://www.dpexnetwork.org/articles/aseans-new-ai-and-data-frameworks-push-connectivity-to-intelligence",
+            author: "DPEX Network",
+            type: "Article",
+            date: "Feb 2026",
+          },
+        ],
       },
       {
         number: 13,
@@ -356,6 +504,16 @@ const SECTIONS: Section[] = [
           "LLM benchmarks vs. human IQ",
           "The quality paradox and judgment gap",
           "Human oversight as the final checkpoint",
+        ],
+        linkedInPosts: [
+          {
+            title: "The 2025 AI Scorecard: A Look Back on GenAI Trends",
+            snippet: "Evaluates AI quality, cost and judgement in real-world deployments — the quality paradox in practice.",
+            url: "https://www.dpexnetwork.org/articles/the-2025-ai-scorecard-a-look-back-on-generative-ai-trends-we-predicted",
+            author: "DPEX Network",
+            type: "Article",
+            date: "Dec 2025",
+          },
         ],
       },
     ],
@@ -388,11 +546,36 @@ const SECTIONS: Section[] = [
         ],
         linkedInPosts: [
           {
-            title: "On Agentic AI Assistants and Agentic Browsers",
-            snippet:
-              "Exploring agentic AI assistants and the new era of autonomous AI browsers — the future Kevin describes in the book is already here.",
-            url: "https://www.linkedin.com/posts/alvintoh_on-agentic-ai-assistants-and-agentic-browsers-activity-7380250433639874561-yXVl",
+            title: "Insight: The Double-Edged Sword That Is Agentic AI",
+            snippet: "Agentic AI risks and opportunities — originally published in Digital Edge, The Edge Malaysia Weekly.",
+            url: "https://www.dpexnetwork.org/articles/insight-the-double-edged-sword-that-is-agentic-ai",
+            author: "DPEX Network",
+            type: "Article",
+            date: "Sep 2025",
+          },
+          {
+            title: "Governing the Shift from Tools to Digital Teammates",
+            snippet: "Alvin Toh on agents as digital teammates — and what governance looks like in the agentic era.",
+            url: "https://www.dpexnetwork.org/articles/governing-the-shift-from-tools-to-digital-teammates-with-the-ai-factory",
+            author: "DPEX Network",
+            type: "Article",
+            date: "Feb 2026",
+          },
+          {
+            title: "Data and AI Governance: Riding the Next Wave with GenAI",
+            snippet: "Agentic and autonomous AI at community level — reflections from the first DPEX Network community event.",
+            url: "https://www.linkedin.com/posts/alvintoh_a-look-at-the-first-dpex-network-community-activity-7353702908607033344-iDZW",
             author: "Alvin Toh",
+            type: "LinkedIn",
+            date: "Jul 2025",
+          },
+          {
+            title: "The Importance of Human Oversight in the Age of AI",
+            snippet: "Human oversight as the essential check on autonomous agents — from the Temasek Lead Summit 2026.",
+            url: "https://www.dpexnetwork.org/articles/the-importance-of-human-oversight-in-the-age-of-artificial-intelligence",
+            author: "DPEX Network",
+            type: "Article",
+            date: "Mar 2026",
           },
         ],
       },
@@ -409,18 +592,28 @@ const SECTIONS: Section[] = [
         ],
         linkedInPosts: [
           {
-            title: "5 Generative AI Trends for 2026",
-            snippet:
-              "From AI bilingualists to EU AI Act compliance — five emerging trends shaping the AI-enabled enterprise.",
-            url: "https://www.linkedin.com/pulse/building-ai-enabled-enterprise-five-generative-ai-knfkc",
-            author: "Kevin Shepherdson & Alvin Toh",
+            title: "Building the AI-Enabled Enterprise: Five GenAI Trends",
+            snippet: "2026 roadmap for AI-enabled enterprises — from AI bilingualists to mandatory AI governance.",
+            url: "https://www.dpexnetwork.org/articles/why-holistic-ai-capabilities-ai-bilingualists-cross-functional-funding-workflow-augmentation-and-mandatory-ai-governance-will-define-enterprise-success",
+            author: "DPEX Network",
+            type: "Article",
+            date: "Jan 2026",
           },
           {
-            title: "From AI Literacy to AI Capability",
-            snippet:
-              "To support the journey from literacy to capability, we launched The AI Factory — an AI Capability Guide for SMEs.",
-            url: "https://www.linkedin.com/posts/kevinshepherdson_from-ai-literacy-to-ai-capability-building-activity-7394144811760537600-hcQP",
-            author: "Kevin Shepherdson",
+            title: "2025 → 2026: Looking Back to the Future",
+            snippet: "Year-in-review and forward-looking AI capability mandate — what 2025 taught us about building AI.",
+            url: "https://www.youtube.com/watch?v=2yfbab_shv4",
+            author: "YouTube",
+            type: "Video",
+            date: "Jan 2026",
+          },
+          {
+            title: "Event Recap: Why 2025 Is the Best Time to Upskill in AI",
+            snippet: "Call to action for professionals to build AI capability now — before the window closes.",
+            url: "https://www.youtube.com/shorts/RL0PZk5-Eq4",
+            author: "YouTube",
+            type: "Video",
+            date: "2025",
           },
         ],
       },
@@ -613,6 +806,14 @@ function HeroSection({ onNav }: { onNav: (id: string) => void }) {
 
 /* ---- LinkedIn post ---- */
 function LinkedInPostCard({ post }: { post: LinkedInPost }) {
+  const typeConfig: Record<string, { bg: string; text: string; label: string }> = {
+    Video:   { bg: "bg-red-600",     text: "text-white", label: "▶ Video" },
+    Article: { bg: "bg-emerald-700", text: "text-white", label: "✦ Article" },
+    LinkedIn:{ bg: "bg-[#0a66c2]",   text: "text-white", label: "in LinkedIn" },
+    Press:   { bg: "bg-slate-600",   text: "text-white", label: "↗ Press" },
+    Social:  { bg: "bg-pink-600",    text: "text-white", label: "◎ Social" },
+  };
+  const cfg = typeConfig[post.type ?? "LinkedIn"] ?? typeConfig["LinkedIn"];
   return (
     <a
       href={post.url}
@@ -620,13 +821,13 @@ function LinkedInPostCard({ post }: { post: LinkedInPost }) {
       rel="noopener noreferrer"
       className="flex items-start gap-2.5 rounded-lg border border-blue-500/20 bg-blue-500/5 p-3 hover:bg-blue-500/10 transition group"
     >
-      <div className="flex-shrink-0 mt-0.5 w-5 h-5 rounded bg-[#0a66c2] flex items-center justify-center text-white">
-        <LinkedInIcon size={12} />
+      <div className={`flex-shrink-0 mt-0.5 px-1.5 h-5 rounded ${cfg.bg} ${cfg.text} flex items-center text-[9px] font-bold whitespace-nowrap`}>
+        {cfg.label}
       </div>
       <div className="flex-1 min-w-0">
         <div className="text-xs font-semibold text-blue-300 group-hover:text-blue-200 transition leading-tight">{post.title}</div>
         <div className="text-[11px] text-muted mt-0.5 line-clamp-2">{post.snippet}</div>
-        <div className="text-[10px] text-blue-400/60 mt-1">{post.author}</div>
+        <div className="text-[10px] text-blue-400/60 mt-1">{post.author}{post.date ? ` · ${post.date}` : ""}</div>
       </div>
       <ArrowIcon />
     </a>
