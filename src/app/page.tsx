@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 
 // basePath prefix for static export (GitHub Pages)
-const B = process.env.NODE_ENV === "production" ? "/ai-factory-preview" : "";
+const B = "/ai-factory-preview";
 
 /* ------------------------------------------------------------------ */
 /*  DATA                                                               */
