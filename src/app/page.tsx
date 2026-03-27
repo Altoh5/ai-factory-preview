@@ -94,14 +94,14 @@ const SECTIONS: Section[] = [
         title: "Welcome to the AI Factory",
         isFree: true,
         summary:
-          "Traces the evolution of industrial revolutions to reveal how AI is powering a fourth revolution — one that manufactures intelligence instead of physical goods. Introduces the AI Factory Formula and the three core layers.",
+          "Just as the first Industrial Revolution had cotton mills and the second had assembly lines, the fourth has AI Factories — operations that manufacture intelligence instead of physical goods. This chapter introduces the core metaphor: your business is a factory, and its product is now digital intelligence. The authors break down the AI Factory Formula (Data + Compute + Models = Tokens) and reveal why 80% of professionals are still just consuming AI, while only 20% are building real capability. Using L'Oréal's AI-powered beauty diagnostics as a case study, the chapter shows what it looks like when an enterprise runs its own intelligence production line.",
         keyIdeas: [
-          "The Four Industrial Revolutions — from steam to intelligence",
-          "AI Factory Formula: Data + Compute + Models → Tokens",
-          "Three layers: Infrastructure, Production, Application",
-          "Five Elements of GenAI Capability",
-          "From consumers to capability builders",
-          "Real-world example: How L'Oréal operates its own AI Factory",
+          "The Four Industrial Revolutions — steam, electricity, computing, and now intelligence production",
+          "AI Factory Formula: Data + Compute + Models → Tokens — the equation behind every AI output",
+          "Three factory layers: Infrastructure (the foundation), Production (the assembly line), Application (the shopfront)",
+          "Five Elements of GenAI Capability — what separates an AI-ready workforce from passive users",
+          "The 80:20 gap: most professionals consume AI outputs; this book is for the 20% who want to build",
+          "Case study: How L'Oréal built its own AI Factory — from beauty diagnostics to personalised product recommendations at scale",
         ],
         linkedInPosts: [
           {
@@ -167,12 +167,13 @@ const SECTIONS: Section[] = [
         title: "The Outputs",
         isFree: true,
         summary:
-          "Explores the digital outputs of the AI Factory — from actionable intelligence to 6 digital product types and 10 common GenAI workplace applications.",
+          "What does an AI Factory actually produce? Not widgets — digital intelligence. This chapter catalogues the six types of digital intelligence products (from automated reports to synthetic media) and maps 10 GenAI applications already transforming workplaces: content generation, code assistance, customer service bots, data analysis, translation, image creation, and more. Think of it as the product catalogue for your AI Factory — before you build the assembly line, you need to know what's rolling off it. The chapter draws a direct line from raw enterprise data to monetisable intelligence outputs.",
         keyIdeas: [
-          "From raw data to actionable intelligence",
-          "10 common GenAI use cases in the workplace",
-          "6 Digital Intelligence Products",
-          "The rise of the intelligence economy",
+          "Six Digital Intelligence Products — the output categories every AI Factory can produce",
+          "10 common GenAI use cases already in the workplace (content, code, customer service, analytics, and more)",
+          "From raw data to actionable intelligence — the value chain of the intelligence economy",
+          "Why the output matters more than the model: choosing the right AI product for your business problem",
+          "The rise of the intelligence economy — where digital output becomes competitive advantage",
         ],
         linkedInPosts: [
           {
@@ -198,12 +199,13 @@ const SECTIONS: Section[] = [
         title: "The Workers",
         isFree: false,
         summary:
-          "Meet the AI workforce — the algorithms that produce tokens instead of bolts. Covers defining generative AI, tokens, and the manager's role.",
+          "In a traditional factory, workers operate machines. In the AI Factory, the workers are the models themselves — LLMs like GPT, Claude, and Gemini that consume tokens as raw material and produce tokens as finished goods. This chapter demystifies the Transformer architecture (the engine inside every modern LLM), explains what tokens actually are (not words — subword units), and reframes the manager's role: you're no longer writing code, you're supervising a digital workforce.",
         keyIdeas: [
-          "Defining Generative AI and its workers",
-          "Tokens as inputs and outputs",
-          "The Transformer architecture explained",
-          "Putting your AI workforce to work",
+          "LLMs as factory workers — they consume tokens (raw material) and produce tokens (finished goods)",
+          "What tokens really are: subword units, not words — and why token economics matters",
+          "The Transformer architecture: self-attention, the mechanism that lets AI understand context",
+          "Your role as manager: supervising, not programming — directing AI workers through instructions",
+          "Choosing the right worker for the job: when to use GPT vs Claude vs open-source models",
         ],
         linkedInPosts: [
           {
@@ -221,12 +223,13 @@ const SECTIONS: Section[] = [
         title: "The Blueprints",
         isFree: false,
         summary:
-          "Every factory needs a blueprint. Introduces the five-stage GenAI Maturity Profile Framework: Use, Create, Deploy, Govern, and Manage.",
+          "You wouldn't build a factory without an architectural plan. This chapter introduces the GenAI Maturity Profile Framework — a five-stage progression from Use (experimenting with off-the-shelf tools) through Create, Deploy, Govern, and finally Manage (running AI as a sustained business operation). Each stage maps to specific Capability Clusters, so leaders can benchmark exactly where their organisation stands and what's needed to advance. Includes 10 essential business use cases to prioritise.",
         keyIdeas: [
-          "The GenAI Maturity Profile Framework",
-          "10 essential business use cases",
-          "Capability Clusters",
-          "Your AI Factory Blueprint in action",
+          "The GenAI Maturity Profile: five stages — Use, Create, Deploy, Govern, Manage",
+          "Capability Clusters — the specific skills and systems required at each maturity stage",
+          "10 essential business use cases: from document summarisation to autonomous customer workflows",
+          "How to benchmark your organisation's AI maturity against the framework",
+          "Your AI Factory Blueprint in action — turning assessment results into a concrete roadmap",
         ],
         linkedInPosts: [
           {
@@ -260,11 +263,13 @@ const SECTIONS: Section[] = [
         title: "The Production Line",
         isFree: false,
         summary:
-          "The heart of the factory — a systematic five-stage process from data collection to deployment and maintenance.",
+          "This is the assembly line of your AI Factory — the systematic five-stage process that transforms a business problem into a deployed AI solution. From data collection and preparation, through model selection, prompt design, testing, and finally deployment and maintenance. The chapter shows how a mid-sized business with no data science team can still run a production line, using no-code platforms and pre-trained models. It's the chapter that turns the metaphor into a repeatable process.",
         keyIdeas: [
-          "The five stages of AI production",
-          "Building a data science department without coding",
-          "Mid-sized business implementation example",
+          "Five stages of AI production: Collect → Prepare → Build → Test → Deploy & Maintain",
+          "Building a 'data science department' without hiring data scientists or writing code",
+          "Model selection: choosing between fine-tuning, RAG, and prompt-only approaches",
+          "Testing and validation: how to QA your AI outputs before they reach customers",
+          "Case study: a mid-sized business running its first AI production line end-to-end",
         ],
         linkedInPosts: [
           {
@@ -282,12 +287,13 @@ const SECTIONS: Section[] = [
         title: "The Instructions",
         isFree: false,
         summary:
-          "Prompt engineering as the art of giving precise, actionable orders to your AI workforce. Three levels, CoT techniques, and multimodal methods.",
+          "Factory workers need work orders. AI workers need prompts. This chapter reframes prompt engineering as the art of giving precise, actionable instructions to your digital workforce — not a one-time trick, but a three-level skill progression from basic queries to advanced Chain-of-Thought (CoT) techniques. Covers zero-shot, few-shot, CoT, and Tree-of-Thought prompting, plus multimodal methods for working with images, audio, and video. The 80:20 insight: 80% of AI users write basic prompts, but the top 20% who master structured instructions unlock dramatically better outputs.",
         keyIdeas: [
-          "The 80:20 workforce reality of prompt engineering",
-          "Three levels of prompt engineering",
-          "Chain of Thought (CoT) prompting & variants",
-          "Multimodal prompting methods",
+          "The 80:20 reality: most users write basic prompts; structured instructions unlock 10x better outputs",
+          "Three levels of prompt engineering: basic (zero-shot), intermediate (few-shot), advanced (CoT, ToT)",
+          "Chain of Thought (CoT) prompting — making the AI 'show its working' for complex reasoning tasks",
+          "Tree-of-Thought: exploring multiple reasoning paths simultaneously for higher-quality answers",
+          "Multimodal prompting: giving instructions that combine text, images, audio, and video inputs",
         ],
         linkedInPosts: [
           {
@@ -305,12 +311,13 @@ const SECTIONS: Section[] = [
         title: "The Owners",
         isFree: false,
         summary:
-          "From the DeepSeek moment to the open-source revolution. Closed, Open, or RAG? Understanding the AI app landscape.",
+          "Who owns the factory? The DeepSeek moment — when a Chinese lab matched frontier performance at a fraction of the cost — threw open the factory doors and forced a reckoning: should your AI be closed-source (renting someone else's factory), open-source (building your own), or a hybrid via RAG? This chapter maps the AI app landscape into three categories — Core (built from scratch), Clone (fine-tuned from existing models), and Combination (integrating multiple AI services) — and explores what 'ownership' means when your competitive advantage depends on models you didn't build.",
         keyIdeas: [
-          "The DeepSeek moment — factory doors swing open",
-          "Open source vs. proprietary",
-          "Core, Clone, and Combination apps",
-          "Responsibility in the open era",
+          "The DeepSeek moment — when open-source matched frontier AI at a fraction of the cost",
+          "Three types of AI apps: Core (built from scratch), Clone (fine-tuned), Combination (integrated)",
+          "Open vs. closed vs. hybrid: choosing your factory ownership model",
+          "RAG as the middle path — augmenting general models with your proprietary data",
+          "Responsibility in the open era: who's accountable when anyone can build with powerful models?",
         ],
         linkedInPosts: [
           {
@@ -344,12 +351,13 @@ const SECTIONS: Section[] = [
         title: "Customization",
         isFree: true,
         summary:
-          "Moving from passive consumers to intelligence creators. Introduces the four-step GenAI integration process and RAG as the smart factory floor.",
+          "General-purpose AI hits a plateau — ChatGPT can write a generic email, but can it write one that sounds like your company, references your products, and follows your compliance rules? This chapter is about crossing that gap. It introduces the four-step GenAI integration process for building custom intelligence: (1) identify the business problem, (2) prepare your proprietary data, (3) choose your integration method (RAG, fine-tuning, or agents), and (4) deploy and iterate. RAG (Retrieval-Augmented Generation) is explained as the 'smart factory floor' — a system that retrieves your company's own documents and feeds them to the LLM at query time, so the AI gives answers grounded in your data, not just its training.",
         keyIdeas: [
-          "The plateau of general AI — why custom intelligence matters",
-          "Four-step GenAI integration process",
-          "How RAG works: the smart factory floor",
-          "What makes custom intelligence possible",
+          "The plateau of general AI — why off-the-shelf tools can't solve company-specific problems",
+          "Four-step GenAI integration: Problem → Data → Method (RAG/fine-tuning/agents) → Deploy & iterate",
+          "RAG as the smart factory floor — grounding AI responses in your proprietary documents and data",
+          "Fine-tuning vs. RAG vs. agents: which customisation method fits which business need",
+          "From passive consumer to intelligence creator — the mindset shift that separates AI-enabled companies",
         ],
         linkedInPosts: [
           {
@@ -367,12 +375,13 @@ const SECTIONS: Section[] = [
         title: "Workshopping",
         isFree: false,
         summary:
-          "Every SME needs an AI Workshop — a focused, practical mini-factory. Five essential building blocks and the AI Workshop Lifecycle.",
+          "Not every business needs a full factory — some need a workshop first. This chapter introduces the AI Workshop as a focused, practical mini-factory: a contained environment where teams can experiment, prototype, and build AI capabilities before scaling. Built around the ISO 5338 AI lifecycle standard, it lays out five essential building blocks and a step-by-step workshop lifecycle that has been field-tested in cohorts across Singapore and the Philippines.",
         keyIdeas: [
-          "The Gen AI Capability Framework",
-          "Five essential building blocks",
-          "AI Workshop Lifecycle (ISO 5338)",
-          "Practical advice for digital transformation",
+          "The AI Workshop — a focused mini-factory for teams not ready for full-scale AI operations",
+          "Five essential building blocks: problem framing, data readiness, tool selection, prototyping, evaluation",
+          "AI Workshop Lifecycle aligned to ISO 5338 — a standards-based approach to experimentation",
+          "The Gen AI Capability Framework — mapping team readiness to workshop intensity",
+          "Field-tested across Singapore and Philippines cohorts — practical lessons from real deployments",
         ],
         linkedInPosts: [
           {
@@ -398,11 +407,13 @@ const SECTIONS: Section[] = [
         title: "Human-Machine Collaboration",
         isFree: false,
         summary:
-          "The new division of labour between humans and AI as partners. The rise of the Chief AI Officer (CAIO).",
+          "AI doesn't replace the factory worker — it changes the job description. This chapter maps the new division of labour: AI handles the repetitive, data-heavy tasks while humans focus on judgement, creativity, and relationship-building. It examines the 2025 workforce snapshot (which roles are growing, which are shrinking, and which are transforming entirely) and makes the case for a new C-suite role — the Chief AI Officer (CAIO) — who bridges the gap between technical capability and business strategy.",
         keyIdeas: [
-          "From task-taker to value creator",
-          "The shifting workforce (2025 snapshot)",
-          "The rise of the Chief AI Officer",
+          "The new division of labour — which tasks go to AI, which stay with humans, and why",
+          "From task-taker to value creator: how AI elevates (not eliminates) human roles",
+          "The 2025 workforce snapshot — which roles are growing, shrinking, and transforming",
+          "The rise of the Chief AI Officer (CAIO) — bridging technical capability and business strategy",
+          "Why human skills like judgement, empathy, and creativity become more valuable, not less",
         ],
         linkedInPosts: [
           {
@@ -436,12 +447,12 @@ const SECTIONS: Section[] = [
         title: "Governance & Ethics",
         isFree: false,
         summary:
-          "Building ethical assembly lines. EU AI Act, ISO 42001, the Six Principles, and the 3As and 3Is toolkit.",
+          "Every factory needs safety regulations. With the EU AI Act now fully in force and ISO 42001 setting the management standard, this chapter gives you the practical toolkit — the 3As and 3Is framework — to build ethical AI operations before regulators come knocking.",
         keyIdeas: [
-          "The EU AI Act and risk levels",
-          "ISO 42001: AI Management System",
-          "Six Principles of ethical AI",
-          "The 3As and 3Is practical toolkit",
+          "The EU AI Act explained — risk levels, compliance timelines, and what it means for ASEAN businesses",
+          "ISO 42001: the AI Management System standard — your governance blueprint",
+          "Six Principles of ethical AI — from transparency to human oversight",
+          "The 3As and 3Is toolkit — a practical framework you can deploy on Monday morning",
         ],
         linkedInPosts: [
           {
@@ -475,12 +486,12 @@ const SECTIONS: Section[] = [
         title: "Accountability, Safety & Risks",
         isFree: false,
         summary:
-          "Every AI product represents your brand. Model cards, copyright protection, and trustworthy AI products.",
+          "When your AI Factory ships a faulty product, who's liable? This chapter introduces Model Cards — the 'nutrition labels' of AI — and confronts the hard questions: copyright ownership of AI-generated content, counterfeit intelligence, and why leadership accountability means you own what your AI ships.",
         keyIdeas: [
-          "Data protection and product liability",
-          'Model Cards: the "nutrition labels" of AI',
-          "Copyright and counterfeit intelligence",
-          "Leadership accountability: you own what you ship",
+          "Data protection meets product liability — what happens when AI outputs cause harm",
+          "Model Cards: the 'nutrition labels' of AI — documenting what your model can and can't do",
+          "Copyright and counterfeit intelligence — who owns what AI creates?",
+          "Leadership accountability: you can delegate the task to AI, but not the responsibility",
         ],
         linkedInPosts: [
           {
@@ -498,12 +509,12 @@ const SECTIONS: Section[] = [
         title: "Intelligence Cost & Judgement",
         isFree: false,
         summary:
-          "Balancing cheap, fast production with quality. Token economics, hallucinations, and human oversight.",
+          "Cheaper AI doesn't mean better AI. This chapter exposes the quality paradox — when faster, cheaper tokens produce confidently wrong answers — and introduces token economics as the new currency of intelligence production. The critical insight: LLM benchmarks look impressive, but human judgement remains the final quality checkpoint.",
         keyIdeas: [
-          "Token economics: the new currency of intelligence",
-          "LLM benchmarks vs. human IQ",
-          "The quality paradox and judgment gap",
-          "Human oversight as the final checkpoint",
+          "Token economics — the new currency of intelligence (and why cost-per-token is misleading)",
+          "LLM benchmarks vs. human IQ — what the scores actually tell you (and what they hide)",
+          "The quality paradox: when AI gets faster and cheaper, hallucinations become harder to catch",
+          "Human oversight as the final checkpoint — why you can't automate judgement away",
         ],
         linkedInPosts: [
           {
@@ -536,13 +547,14 @@ const SECTIONS: Section[] = [
         title: "The Age of Autonomous Agents",
         isFree: true,
         summary:
-          "AI workers that don't need explicit instructions for every task. The AI spectrum, 7P considerations, and creating business agents without coding.",
+          "What happens when factory workers no longer need a supervisor standing over them? This chapter explores the frontier of AI: autonomous agents that can plan, reason, use tools, and execute multi-step tasks without explicit instructions for every action. The book places agents on the intelligence spectrum — from ANI (narrow AI, where we are today) through AGI (artificial general intelligence) to ASI (superintelligence) — and shows that agentic AI is already here in practical form. Using the 7P framework (Purpose, People, Process, Platform, Privacy, Protection, Performance), the chapter provides a decision matrix for deploying agents responsibly. A standout section shows how business leaders can create functional agents without writing a single line of code, using platforms like Capabara and no-code agent builders.",
         keyIdeas: [
-          "ANI, AGI, ASI — where agents fit on the spectrum",
-          "Agentic AI: what's possible now",
-          "7P considerations for deploying agents",
-          "Creating business agents without coding",
-          "Agency, autonomy, and new challenges",
+          "The AI intelligence spectrum: ANI → AGI → ASI — and where today's agents actually sit",
+          "Agentic AI is already here — agents that plan, reason, use tools, and execute multi-step workflows",
+          "The 7P framework for deploying agents: Purpose, People, Process, Platform, Privacy, Protection, Performance",
+          "Creating business agents without coding — using Capabara and no-code builders to automate workflows",
+          "From tools to digital teammates — the governance shift when AI stops waiting for instructions",
+          "The accountability question: 'You can delegate a task to AI, but not the responsibility' — Kevin Shepherdson",
         ],
         linkedInPosts: [
           {
@@ -584,11 +596,12 @@ const SECTIONS: Section[] = [
         title: "Call to Action: Building the Future of Intelligence",
         isFree: false,
         summary:
-          "The leadership mandate for the intelligence economy. Recaps the AI Factory journey and the Capability Framework as a call to action.",
+          "The final chapter doesn't just summarise — it issues a mandate. The AI Factory journey culminates in a clear call: every business leader must decide whether to build intelligence capability now or fall behind. The Capability Framework becomes your roadmap from here.",
         keyIdeas: [
-          "Recap of the AI Factory journey",
-          "The leadership mandate",
-          "Thriving in the intelligence economy",
+          "The leadership mandate — why waiting is the riskiest strategy of all",
+          "Recap of the AI Factory journey — from metaphor to operational reality",
+          "The Capability Framework as your personal roadmap — where to start on Monday morning",
+          "Thriving in the intelligence economy — what separates winners from bystanders",
         ],
         linkedInPosts: [
           {
