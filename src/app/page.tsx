@@ -1317,7 +1317,9 @@ function CTASection() {
           Get the complete guide with all 15 chapters, practical frameworks, case studies, self-assessments, and the AI Tool Builder bonus toolkit.
         </p>
         <a
-          href="mailto:info@straitsinteractive.com?subject=AI%20Factory%20Book%20Inquiry"
+          href="https://play.google.com/store/books/details?id=8MynEQAAQBAJ&utm_source=bookpreviewleadmagnet"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-block rounded-full bg-accent-orange px-10 py-3.5 text-white font-semibold glow-orange hover:scale-105 transition-transform duration-300 text-sm"
           style={{ fontFamily: "var(--font-sans)" }}
         >
