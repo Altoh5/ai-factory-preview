@@ -869,7 +869,7 @@ function HeroSection({ onNav }: { onNav: (id: string) => void }) {
               <button onClick={() => onNav("foundation")} className="rounded-full bg-accent-blue px-5 py-2.5 text-white font-medium glow-blue hover:opacity-90 transition text-sm">
                 Preview Chapters
               </button>
-              <a href="#get-book" className="rounded-full border border-border px-5 py-2.5 text-foreground font-medium hover:bg-surface transition text-sm">
+              <a href="https://play.google.com/store/books/details?id=8MynEQAAQBAJ&utm_source=bookpreviewleadmagnet" target="_blank" rel="noopener noreferrer" className="rounded-full border border-border px-5 py-2.5 text-foreground font-medium hover:bg-surface transition text-sm">
                 Get Your Copy
               </a>
             </div>
